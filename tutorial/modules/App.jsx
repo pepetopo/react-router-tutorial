@@ -1,5 +1,6 @@
 import React from 'react';
 
+// import { IndexLink } from 'react-router';
 import NavLinks from './NavLinks';
 
 export default function App(props) {
@@ -7,8 +8,10 @@ export default function App(props) {
     <div>
       <h1>React Router Tutorial</h1>
       <ul data-role="nav">
-        <li><NavLinks to="/about" data="About" /></li>
-        <li><NavLinks to="/repos" data="Repos" /></li>
+        {/* <li><IndexLink to="/">Home</IndexLink></li> */}
+        <li><NavLinks to="/" onlyActiveOnIndex>Home</NavLinks></li>
+        <li><NavLinks to="/about">About</NavLinks></li>
+        <li><NavLinks to="/repos">Repos</NavLinks></li>
       </ul>
 
       { props.children }
@@ -18,5 +21,5 @@ export default function App(props) {
 }
 
 App.propTypes = {
-  children: React.PropTypes.element,
+  children: React.PropTypes.element.isRequired,
 };

@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --content-base ."
+    "start": "per-env",
+    "start:development": "webpack-dev-server --inline --content-base public --history-api-fallback .",
+    "start:production": "webpack && nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "nodemon": "^1.11.0",
+    "per-env": "^1.0.2",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0"

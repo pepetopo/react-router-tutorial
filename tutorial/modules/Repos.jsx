@@ -7,8 +7,8 @@ export default function Repos(props) {
       <h2>Repos</h2>
 
       <ul>
-        <li><NavLinks to="/repos/reactjs/react-router" data="React Router" /></li>
-        <li><NavLinks to="/repos/facebook/react" data="React" /></li>
+        <li><NavLinks to="/repos/reactjs/react-router">React Router</NavLinks></li>
+        <li><NavLinks to="/repos/facebook/react">React</NavLinks></li>
       </ul>
 
       {props.children}
