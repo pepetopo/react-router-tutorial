@@ -1,7 +1,17 @@
 import React from 'react';
+
 import NavLinks from './NavLinks';
 
-export default function Repos(props) {
+export default function Repos(props, context) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const userName = event.target.elements[0].value;
+    const repo = event.target.elements[1].value;
+    const path = `/repos/${userName}/${repo}`;
+    console.log(path);
+    context.router.push(path);
+  }
+
   return (
     <div>
       <h2>Repos</h2>
@@ -9,6 +19,12 @@ export default function Repos(props) {
       <ul>
         <li><NavLinks to="/repos/reactjs/react-router">React Router</NavLinks></li>
         <li><NavLinks to="/repos/facebook/react">React</NavLinks></li>
+
+        <form onSubmit={handleSubmit}>
+          <input type="text" placeholder="userName" /> / {' '}
+          <input type="text" placeholder="repo" /> / {' '}
+          <button type="submit">Go</button>
+        </form>
       </ul>
 
       {props.children}
@@ -18,4 +34,8 @@ export default function Repos(props) {
 
 Repos.propTypes = {
   children: React.PropTypes.element,
+};
+
+Repos.contextTypes = {
+  router: React.PropTypes.object,
 };
