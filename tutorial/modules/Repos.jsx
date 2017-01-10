@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router'
 
 import NavLinks from './NavLinks';
 
@@ -9,7 +10,7 @@ export default function Repos(props, context) {
     const repo = event.target.elements[1].value;
     const path = `/repos/${userName}/${repo}`;
     console.log(path);
-    context.router.push(path);
+    browserHistory.push(path)
   }
 
   return (
@@ -34,8 +35,4 @@ export default function Repos(props, context) {
 
 Repos.propTypes = {
   children: React.PropTypes.element,
-};
-
-Repos.contextTypes = {
-  router: React.PropTypes.object,
 };
